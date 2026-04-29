@@ -2,7 +2,7 @@
 {
     public class User
     {
-        //class properties for the user model`
+        //class properties for the user model
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
