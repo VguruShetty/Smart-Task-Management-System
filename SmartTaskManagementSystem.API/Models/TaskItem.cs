@@ -2,7 +2,7 @@
 {
     public class TaskItem
     {
-        //class properties
+        //class properties for the task item model
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
