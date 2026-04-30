@@ -18,14 +18,14 @@ namespace SmartTaskManagementSystem.API.Controllers
         [HttpGet]
         public IActionResult GetTasks()
         {
-            //
+            //get all tasks
             return Ok(_context.Tasks.ToList());
         }
 
         [HttpPost]
         public IActionResult CreateTask(TaskItem task)
         {
-            //
+            //create task
             task.DueDate = task.DueDate.ToUniversalTime();
             _context.Tasks.Add(task);
             _context.SaveChanges();
