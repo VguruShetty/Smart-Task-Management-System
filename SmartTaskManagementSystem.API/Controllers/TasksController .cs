@@ -48,5 +48,18 @@ namespace SmartTaskManagementSystem.API.Controllers
             _context.SaveChanges();
             return Ok(existingTask);
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTask(int id)
+        {
+            //delete task
+            var task = _context.Tasks.Find(id);
+            if (task == null)
+            {
+                return NotFound();
+            }
+            _context.Tasks.Remove(task);
+            _context.SaveChanges();
+            return NoContent();
+        }
     }
 }
