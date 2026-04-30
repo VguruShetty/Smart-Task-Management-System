@@ -31,5 +31,22 @@ namespace SmartTaskManagementSystem.API.Controllers
             _context.SaveChanges();
             return Ok(task);
         }
+        [HttpPut("{id}")]
+        public IActionResult UpdateTask(int id, TaskItem task)
+        {
+            //update task
+            var existingTask = _context.Tasks.Find(id);
+            if (existingTask == null)
+            {
+                return NotFound();
+            }
+            existingTask.Title = task.Title;
+            existingTask.Description = task.Description;
+            existingTask.Status = task.Status;
+            existingTask.Priority = task.Priority;
+            existingTask.DueDate = task.DueDate.ToUniversalTime();
+            _context.SaveChanges();
+            return Ok(existingTask);
+        }
     }
 }
