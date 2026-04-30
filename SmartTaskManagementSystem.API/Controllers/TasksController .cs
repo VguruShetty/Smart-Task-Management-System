@@ -18,6 +18,7 @@ namespace SmartTaskManagementSystem.API.Controllers
         [HttpGet]
         public IActionResult GetTasks()
         {
+            //
             return Ok(_context.Tasks.ToList());
         }
 
