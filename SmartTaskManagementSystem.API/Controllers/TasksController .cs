@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SmartTaskManagementSystem.API.Data;
 using SmartTaskManagementSystem.API.Models;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
 namespace SmartTaskManagementSystem.API.Controllers
 {
@@ -11,15 +9,18 @@ namespace SmartTaskManagementSystem.API.Controllers
     public class TasksController : ControllerBase
     {
         private readonly AppDbContext _context;
+
         public TasksController(AppDbContext context)
         {
             _context = context;
         }
+
         [HttpGet]
         public IActionResult GetTasks()
         {
             return Ok(_context.Tasks.ToList());
         }
+
         [HttpPost]
         public IActionResult CreateTask(TaskItem task)
         {
