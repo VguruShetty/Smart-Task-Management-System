@@ -49,7 +49,7 @@ namespace SmartTaskManagementSystem.API.Controllers
                 new Claim(ClaimTypes.Name, user.Name),
                 new Claim(ClaimTypes.Role, user.Role),
             };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key_here"));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this_is_my_super_secure_secret_key_12345"));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
