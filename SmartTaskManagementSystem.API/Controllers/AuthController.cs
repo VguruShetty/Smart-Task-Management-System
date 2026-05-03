@@ -31,14 +31,16 @@ namespace SmartTaskManagementSystem.API.Controllers
             return Ok("User registered successfully");
         }
         [HttpPost("login")]
-        public IActionResult Login(User user)
+        public IActionResult Login(LoginDto request)
         {
-            var existingUser = _context.Users.FirstOrDefault(u => u.Email == user.Email);
-            if (existingUser == null || !BCrypt.Net.BCrypt.Verify(user.PasswordHash, existingUser.PasswordHash))
+            var user = _context.Users.FirstOrDefault(u => u.Email == request.Email);
+
+            if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
             {
                 return Unauthorized("Invalid email or password");
             }
-            var token = CreateToken(existingUser);
+
+            var token = CreateToken(user);
             return Ok(new { token });
         }
         private string CreateToken(User user)
