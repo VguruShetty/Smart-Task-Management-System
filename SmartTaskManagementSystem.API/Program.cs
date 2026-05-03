@@ -1,6 +1,8 @@
 using SmartTaskManagementSystem.API.Data;
 using Microsoft.EntityFrameworkCore;
 
+var key = "this_is_my_super_secure_secret_key_12345";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
