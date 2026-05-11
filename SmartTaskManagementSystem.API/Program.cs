@@ -28,6 +28,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+//added react app url to allow cross-origin requests
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact",
