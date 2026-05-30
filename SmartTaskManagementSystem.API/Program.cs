@@ -48,7 +48,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+//CL
 app.UseHttpsRedirection();
 app.UseCors("AllowReact");
 
